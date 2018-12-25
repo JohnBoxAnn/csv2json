@@ -90,11 +90,8 @@ def count_to_json(target_file):
     lN = []
     min = float('inf')
     max = 0
-    for i in range(len(tempdict)):
-        try:
-            [string, count] = tempdict.popitem()
-        except KeyError:
-            break
+    for i in range(1, len(tempdict)):
+        [string, count] = tempdict.popitem()
         if string == "nan,nan":
             continue
         long = float(string[0:string.find(',')])
