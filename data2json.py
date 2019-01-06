@@ -50,7 +50,7 @@ def count_to_json(data_file,target_file):
 
     string = ""
     lN = []
-    lD = []
+    lD = {}
     min = float('inf')
     max = 0
     for i in range(len(tempdict)):
@@ -67,8 +67,7 @@ def count_to_json(data_file,target_file):
             lN[-1] = dict({"location":dict(zip(["lat","lng"],[lat,lng])),"count":count})
             max = count>max and count or max
             min = count<min and count or min
-        lD.append(dict())
-        lD[-1] = dict({date:lN})
+        lD[date] = lN
         lN = []
     print("lD Finished")
     print("max: %d, min: %d"%(max, min))
